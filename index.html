@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: gray;
+            color: white;
+        }
+
+        section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            max-width: 1000px;
+            margin: 0 auto;
+            margin-top: 3rem;
+
+        }
+
+        button {
+            max-width: 60px;
+        }
+
+        .left-arrow {
+            background-color: blue;
+            border-radius: 5px;
+            padding: 0 10px;
+            color: white;
+        }
+
+        .right-arrow {
+            background-color: green;
+            border-radius: 5px;
+            padding: 0 10px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="basket-1">
+            <h1><span></span> Apple</h1>
+            <p>Basket-1</p>
+        </div>
+        <button class="left-arrow">left Arrow</button>
+        <button class="right-arrow">Right Arrow</button>
+        <div class="basket-2">
+            <h1><span></span> Apple</h1>
+            <p>Basket-2</p>
+        </div>
+    </section>
+    <script>
+        const firstBasket = document.querySelector(".basket-1 span")
+        const secondBasket = document.querySelector(".basket-2 span")
+        const leftArrow = document.querySelector(".left-arrow")
+        const rightArrow = document.querySelector(".right-arrow")
+
+        let totalApples = 10;
+        let secondBasketAppleCount = 0;
+        let firstBasketAppleCount = totalApples - secondBasketAppleCount;
+
+        firstBasket.innerText = firstBasketAppleCount;
+        secondBasket.innerText = secondBasketAppleCount;
+
+        rightArrow.addEventListener("click", () => {
+            if (firstBasketAppleCount > 0) {
+                firstBasketAppleCount--;
+                firstBasket.innerText = firstBasketAppleCount;
+                secondBasketAppleCount++;
+                secondBasket.innerText = secondBasketAppleCount;
+            }
+
+        })
+        leftArrow.addEventListener("click", () => {
+            if (secondBasketAppleCount > 0) {
+                firstBasketAppleCount++;
+                firstBasket.innerText = firstBasketAppleCount;
+                secondBasketAppleCount--;
+                secondBasket.innerText = secondBasketAppleCount;
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>
